@@ -1,10 +1,12 @@
 # osmi-paas
 A simple micro services architecture with docker
 
-Docker has to be installed.
+Docker and gradle have to be installed.
 
-Simply run the following command:
+To start this simple micro service example, simply run:
 
-docker-compose up
+- gradle assemble -b ./service-a/build.gradle
+- gradle assemble -b ./service-b/build.gradle
+- docker-compose up
 
 ![architecture](https://raw.githubusercontent.com/og84/osmi-paas/master/vfhpse-paas.png)
