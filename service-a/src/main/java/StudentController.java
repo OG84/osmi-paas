@@ -3,6 +3,9 @@ import db.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -10,15 +13,18 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.List;
 
 @SpringBootApplication
+@ComponentScan("db")
+@EnableMongoRepositories
+@Controller
 public class StudentController {
 
     @Autowired
     private StudentRepository studentRepository;
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @RequestMapping(value = "/test", method = RequestMethod.GET)
     @ResponseBody
     List<Student> getAllStudents(){
-        List<Student> allStudents = studentRepository.getAll();
+        List<Student> allStudents = studentRepository.findAll();
         if(allStudents.isEmpty()){
             createDummyStudents();
         }
