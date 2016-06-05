@@ -21,7 +21,7 @@ public class StudentController {
     @Autowired
     private StudentRepository studentRepository;
 
-    @RequestMapping(value = "/test", method = RequestMethod.GET)
+    @RequestMapping(value = "/", method = RequestMethod.GET)
     @ResponseBody
     List<Student> getAllStudents(){
         List<Student> allStudents = studentRepository.findAll();
