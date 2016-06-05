@@ -9,4 +9,6 @@ To start this simple micro service example, simply run:
 - gradle assemble -b ./service-b/build.gradle
 - docker-compose up
 
+You can access Service B through http://docker.local:12346
+
 ![architecture](https://raw.githubusercontent.com/og84/osmi-paas/master/vfhpse-paas.png)
