@@ -1,0 +1,14 @@
+version: '2'
+
+services:
+    service-a:
+        build: ./service-a
+        ports: 
+            - "12345:12345"
+        depends_on:
+            - mongo-db
+    mongo-db:
+        image: mongo
+        ports:
+            - "27017:27017"
+            

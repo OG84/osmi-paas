@@ -21,7 +21,7 @@ public class FirstSemesterController {
     @ResponseBody
     List<Student> getFirstSemesterStudents(){
         RestTemplate restTemplate = new RestTemplate();
-        Student[] allStudents = restTemplate.getForObject("http://localhost:12345", Student[].class);
+        Student[] allStudents = restTemplate.getForObject("http://service-a:12345", Student[].class);
         List<Student> allStudentsList = Arrays.asList(allStudents);
         Stream<Student> firstSemesterStudents = allStudentsList.stream().filter(student -> student.getSemester() == 1);
         return firstSemesterStudents.collect(Collectors.toList());
