@@ -7,6 +7,12 @@ services:
             - "12345:12345"
         depends_on:
             - mongo-db
+    service-b:
+        build: ./service-b
+        ports: 
+            - "12346:12346"
+        depends_on:
+            - service-a
     mongo-db:
         image: mongo
         ports:
